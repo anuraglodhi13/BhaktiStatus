@@ -1,10 +1,17 @@
-import React ,{ useState }from 'react';
-import { View, TouchableOpacity, StyleSheet,Text,StatusBar,TextInput } from 'react-native';
-import { AntDesign, FontAwesome } from '@expo/vector-icons';
+import React, { useState } from "react";
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  StatusBar,
+  TextInput,
+} from "react-native";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 
-export default function Navbar () {
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [searchText, setSearchText] = useState('');
+export default function Navbar() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchText, setSearchText] = useState("");
   const handleSearchButtonClick = () => {
     setIsSearchOpen(!isSearchOpen);
   };
@@ -14,65 +21,64 @@ export default function Navbar () {
 
   return (
     <View style={styles.navbar}>
-        <StatusBar backgroundColor="#ff8d1a" barStyle="light-content" />
-        {!isSearchOpen && (
-           <Text style={{...styles.navItem, ...styles.appName}} >
-            All God Status
-        </Text> 
-        )}
+      <StatusBar backgroundColor="#ff8d1a" barStyle="light-content" />
+      {!isSearchOpen && (
+        <Text style={{ ...styles.navItem, ...styles.appName }}>
+          All God Status
+        </Text>
+      )}
 
-        {isSearchOpen && (
-          
-            <TextInput style={styles.searchBar} 
-            placeholder="Search..."
-            placeholderTextColor="white"
-            value={searchText}
-            onChangeText={handleInputChange}>
-            </TextInput>
-           
-        )}
-       
-      <TouchableOpacity style={styles.navItem} onPress={handleSearchButtonClick}>
+      {isSearchOpen && (
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search..."
+          placeholderTextColor="white"
+          value={searchText}
+          onChangeText={handleInputChange}
+        ></TextInput>
+      )}
+
+      <TouchableOpacity
+        style={styles.navItem}
+        onPress={handleSearchButtonClick}
+      >
         <AntDesign name="search1" size={24} color="white" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.navItem}>
         <FontAwesome name="download" size={24} color="white" />
       </TouchableOpacity>
-
     </View>
-    
   );
-};
+}
 
 const styles = StyleSheet.create({
   navbar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
     height: 50,
-    backgroundColor: '#ff8000',
+    backgroundColor: "#ff8000",
   },
   navItem: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop:8,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 8,
   },
-  appName : {
-    color:'white',
+  appName: {
+    color: "white",
     fontSize: 18,
-    fontWeight: 'bold',
-    marginLeft:12
+    fontWeight: "bold",
+    marginLeft: 12,
   },
   searchBar: {
-    backgroundColor: '#ff8000',
+    backgroundColor: "#ff8000",
     paddingVertical: 10,
     paddingHorizontal: 20,
-    color:'white'
+    color: "white",
   },
   searchText: {
     fontSize: 16,
-    fontWeight: 'bold',
-  }
+    fontWeight: "bold",
+  },
 });
-

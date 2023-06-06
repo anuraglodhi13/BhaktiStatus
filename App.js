@@ -1,30 +1,23 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import HomePageCategory from './src/components/homepage/HomepageCategory';
-import HomepageSlider from './src/components/homepage/HomepageSlider';
-import HomepageVerticalScrolling from './src/components/homepage/HomepageVerticalScrolling';
-import Navbar from './src/components/homepage/Navbar';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Homepage from "./src/components/homepage/Homepage";
+import VideoPlayer from "./src/components/mediaload/VideoPlayer";
+import ImageShow from "./src/components/mediaload/ImageShow";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-  <Navbar/>
-  <ScrollView>
-  <HomePageCategory/>
-  <HomepageSlider/>
-  <HomepageVerticalScrolling/>
-  </ScrollView>
-    </View>
-
-    // <View style={styles.container}>
-    //   <Text>Hi water</Text>
-    //   <StatusBar style="auto" />
-    // </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false, // Hide the header for all screens
+        }}
+      >
+        <Stack.Screen name="Home" component={Homepage} />
+        <Stack.Screen name="VideoPlayer" component={VideoPlayer} />
+        <Stack.Screen name="ImageShow" component={ImageShow} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
