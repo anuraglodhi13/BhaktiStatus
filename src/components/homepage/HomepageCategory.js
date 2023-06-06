@@ -7,7 +7,7 @@ const HomePageCategory = () => {
         { imagePath: require('../img/shiva.jpg'), text: 'Shiva' },
         { imagePath: require('../img/hanuman.png'), text: 'Hanuman' },
         { imagePath: require('../img/durga.jpg'), text: 'Maa Durga' },
-        { imagePath: require('../img/arrow.png'), text: 'More' },
+        { imagePath: require('../img/ff8000.png'), text: 'More' },
       ];
     return (
         <View style={styles.container}>
